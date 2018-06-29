@@ -1,0 +1,11 @@
+src
+test
+.babelrc
+.editorconfig
+.eslintcache
+.eslintignore
+.eslintrc.js
+.prettierignore
+.prettierrc.js
+.travis.yml
+appveyor.yml

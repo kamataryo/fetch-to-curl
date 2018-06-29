@@ -1,0 +1,6 @@
+--require babel-core/register
+--recursive
+--reporter dot
+
+./src/**/*.test.js
+./test/**/*.test.js

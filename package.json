@@ -4,7 +4,6 @@
   "description": "Convert fetch arguments to a curl command.",
   "author": "kamataryo <mugil.cephalus+github.com@gmail.com>",
   "main": "./dist/main.js",
-  "module": "./src/index.mjs",
   "engines": {
     "node": ">=8"
   },

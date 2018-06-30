@@ -1,6 +1,6 @@
 {
   "name": "fetch-to-curl",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "description": "Convert fetch arguments to a curl command.",
   "author": "kamataryo <mugil.cephalus+github.com@gmail.com>",
   "main": "./dist/main.js",

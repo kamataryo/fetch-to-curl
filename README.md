@@ -10,7 +10,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Convert fetch arguments to a curl command.
+Converts fetch arguments to a curl command.
 
 ## install
 

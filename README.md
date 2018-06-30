@@ -1,12 +1,11 @@
-# fetch-to-curl
+# fetch2curl
 
 [![Build Status](https://travis-ci.org/kamataryo/fetch-to-curl.svg?branch=master)](https://travis-ci.org/kamataryo/fetch-to-curl)
 [![Build status](https://ci.appveyor.com/api/projects/status/yhpc128t9efo5b1k?svg=true)](https://ci.appveyor.com/project/kamataryo/fetch-to-curl)
 
 [![npm (scoped)](https://img.shields.io/npm/v/fetch2curl.svg)](https://www.npmjs.com/package/fetch2curl)
-[![downloads](https://img.shields.io/npm/dt/fetch2curl.svg)](https://www.npmjs.com/package/fetch2curl)
-[![Dependency Status](https://img.shields.io/david/kamataryo/fetch2curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch2curl)
-[![devDependency Status](https://img.shields.io/david/dev/kamataryo/fetch2curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch2curl#info=devDependencies)
+[![Dependency Status](https://img.shields.io/david/kamataryo/fetch-to-curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch-to-curl)
+[![devDependency Status](https://img.shields.io/david/dev/kamataryo/fetch-to-curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch-to-curl#info=devDependencies)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -50,7 +49,7 @@ $ cd fetch-to-curl
 $ npm test
 ```
 
-## Available `init` options
+## Available `init` options (the 2nd argument)
 
 https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/fetch
 

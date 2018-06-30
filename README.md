@@ -22,17 +22,24 @@ $ yarn add fetch2curl
 
 ## usage
 
+## parser
+
 ```javascript
-import { parser } from "fetch2curl";
-const command = parser("https://example.com", { method: "POST" });
-console.log(command); // curl "https://example.com" -X "POST"
+import { parser } from 'fetch2curl'
+
+const command = parser('https://example.com', { method: 'POST' })
+console.log(command) // curl https://example.com -X POST
 ```
 
 ```javascript
-import { inject, eject } from "fetch2curl";
-inject(command => console.log(`COMMAND: \`${command}\``));
-fetch("https://example.com", { method: "POST" }); // COMMAND: `curl "https://example.com" -X "POST"`
-elect();
+import { inject, eject } from 'fetch2curl'
+
+// hook fetch
+inject(command => console.log(`COMMAND: \`${command}\``))
+fetch('https://example.com', { method: 'POST' }) // COMMAND: `curl https://example.com -X POST`
+
+// unregister the hook
+eject()
 ```
 
 ## development

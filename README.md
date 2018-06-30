@@ -23,13 +23,16 @@ $ yarn add fetch-to-curl
 ## usage
 
 ```javascript
-const { parser } = require('fetch-to-curl')
-parser('https://example.com', { method: 'POST' }) // curl "https://example.com" -X "POST"
+import { parser } from 'fetch-to-curl'
+const command = parser('https://example.com', { method: 'POST' })
+console.log(command) // curl "https://example.com" -X "POST"
 ```
 
 ```javascript
-require('fetch-to-curl').inject(console.log)
-fetch('https://example.com', { method: 'POST' }) // curl  "https://example.com" -X "POST"
+import { inject, eject } from 'fetch-to-curl'
+inject(command => console.log(`COMMAND: \`${command}\``))
+fetch('https://example.com', { method: 'POST' }) // COMMAND: `curl "https://example.com" -X "POST"`
+elect()
 ```
 
 ## development
@@ -39,3 +42,20 @@ $ git clone https://github.com/kamataryo/fetch-to-curl.git
 $ cd fetch-to-curl
 $ npm test
 ```
+
+## Available `init` options
+
+https://developer.mozilla.org/ja/docs/Web/API/WindowOrWorkerGlobalScope/fetch
+
+- [x] method: The request method, e.g., GET, POST.
+- [x] headers: Any headers you want to add to your request, contained within a Headers object or an object literal with ByteString values.
+- [x] body: Any body that you want to add to your request: this can be a Blob, BufferSource, FormData, URLSearchParams, or USVString object. Note that a request using the GET or HEAD method cannot have a body.
+- [ ] mode: The mode you want to use for the request, e.g., cors, no-cors, or same-origin.
+- [ ] credentials: The request credentials you want to use for the request: omit, same-origin, or include. To automatically send cookies for the current domain, this option must be provided. Starting with Chrome 50, this property also takes a FederatedCredential instance or a PasswordCredential instance.
+- [x] cache: The cache mode you want to use for the request: default, no-store, reload, no-cache, force-cache, or only-if-cached.
+- [x] redirect: The redirect mode to use: follow (automatically follow redirects), error (abort with an error if a redirect occurs), or manual (handle redirects manually). In Chrome the default is follow (before Chrome 47 it defaulted to manual).
+- [ ] referrer: A USVString specifying no-referrer, client, or a URL. The default is client.
+- [ ] referrerPolicy: Specifies the value of the referer HTTP header. May be one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, unsafe-url.
+- [ ] integrity: Contains the subresource integrity value of the request (e.g., sha256-BpfBw7ivV8q2jLiT13fxDYAe2tJllusRSZ273h2nFSE=).
+- [ ] keepalive: The keepalive option can be used to allow the request to outlive the page. Fetch with the keepalive flag is a replacement for the Navigator.sendBeacon() API.
+- [ ] signal: An AbortSignal object instance; allows you to communicate with a fetch request and abort it if desired via an AbortController.

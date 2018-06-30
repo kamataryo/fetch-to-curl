@@ -1,45 +1,49 @@
-const { parser } = require('./')
-const { expect } = require('chai')
+import test from 'ava'
+import { parser } from './index.mjs'
 
-describe('parser', () => {
-  it('command', () => {
-    const command = parser()
-    expect(command).to.contains('curl')
-  })
+test('command', t => {
+  const command = parser()
+  t.true(command.includes('curl'))
+})
 
-  it('redirect', () => {
-    const command = parser('https://example.com', { redirect: 'follow' })
-    expect(command).to.contain('-L')
-  })
+test('redirect', t => {
+  const command = parser('https://example.com', { redirect: 'follow' })
+  t.true(command.includes('-L'))
+})
 
-  it('url', () => {
-    const command = parser('https://example.com')
-    expect(command).to.contains('https://example.com')
-  })
+test('url', t => {
+  const command = parser('https://example.com')
+  t.true(command.includes('https://example.com'))
+})
 
-  it('method', () => {
-    const command = parser('https://example.com', { method: 'POST' })
-    expect(command).to.contains('-X')
-    expect(command).to.contains('POST')
-  })
+test('method', t => {
+  const command = parser('https://example.com', { method: 'POST' })
+  t.true(command.includes('-X'))
+  t.true(command.includes('POST'))
+})
 
-  it('cache', () => {
-    const command = parser('https://example.com', { cache: 'no-chache' })
-    expect(command).to.contains('--header "cache-control: no-cache')
-  })
+test('cache', t => {
+  const command = parser('https://example.com', { cache: 'no-cache' })
+  t.true(command.includes('--header'))
+  t.true(command.includes('cache-control: no-cache'))
+})
 
-  it('header', () => {
-    const command = parser('https://example.com', {
-      headers: { 'content-type': 'application/json' },
-    })
-    expect(command).to.contain('--header "content-type: application/json"')
+test('header', t => {
+  const command = parser('https://example.com', {
+    headers: {
+      'content-type': 'application/json',
+      Autorization: 'Bearer mytoken',
+    },
   })
+  t.true(command.includes('--header'))
+  t.true(command.includes('content-type: application/json'))
+})
 
-  it('body', () => {
-    const command = parser('https://example.com', {
-      method: 'POST',
-      body: 'hello',
-    })
-    expect(command).to.contains('-d "hello"')
+test('body', t => {
+  const command = parser('https://example.com', {
+    method: 'POST',
+    body: 'hello',
   })
+  t.true(command.includes('-d'))
+  t.true(command.includes('hello'))
 })

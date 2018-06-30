@@ -1,6 +1,4 @@
-src
-test
-.babelrc
+src/*.test.js
 .editorconfig
 .eslintcache
 .eslintignore

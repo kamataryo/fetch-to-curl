@@ -3,10 +3,10 @@
 [![Build Status](https://travis-ci.org/kamataryo/fetch-to-curl.svg?branch=master)](https://travis-ci.org/kamataryo/fetch-to-curl)
 [![Build status](https://ci.appveyor.com/api/projects/status/yhpc128t9efo5b1k?svg=true)](https://ci.appveyor.com/project/kamataryo/fetch-to-curl)
 
-[![npm (scoped)](https://img.shields.io/npm/v/fetch-to-curl.svg)](https://www.npmjs.com/package/fetch-to-curl)
-[![downloads](https://img.shields.io/npm/dt/fetch-to-curl.svg)](https://www.npmjs.com/package/fetch-to-curl)
-[![Dependency Status](https://img.shields.io/david/kamataryo/fetch-to-curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch-to-curl)
-[![devDependency Status](https://img.shields.io/david/dev/kamataryo/fetch-to-curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch-to-curl#info=devDependencies)
+[![npm (scoped)](https://img.shields.io/npm/v/fetch2curl.svg)](https://www.npmjs.com/package/fetch2curl)
+[![downloads](https://img.shields.io/npm/dt/fetch2curl.svg)](https://www.npmjs.com/package/fetch2curl)
+[![Dependency Status](https://img.shields.io/david/kamataryo/fetch2curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch2curl)
+[![devDependency Status](https://img.shields.io/david/dev/kamataryo/fetch2curl.svg?style=flat)](https://david-dm.org/kamataryo/fetch2curl#info=devDependencies)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -23,16 +23,16 @@ $ yarn add fetch-to-curl
 ## usage
 
 ```javascript
-import { parser } from 'fetch-to-curl'
-const command = parser('https://example.com', { method: 'POST' })
-console.log(command) // curl "https://example.com" -X "POST"
+import { parser } from "fetch-to-curl";
+const command = parser("https://example.com", { method: "POST" });
+console.log(command); // curl "https://example.com" -X "POST"
 ```
 
 ```javascript
-import { inject, eject } from 'fetch-to-curl'
-inject(command => console.log(`COMMAND: \`${command}\``))
-fetch('https://example.com', { method: 'POST' }) // COMMAND: `curl "https://example.com" -X "POST"`
-elect()
+import { inject, eject } from "fetch-to-curl";
+inject(command => console.log(`COMMAND: \`${command}\``));
+fetch("https://example.com", { method: "POST" }); // COMMAND: `curl "https://example.com" -X "POST"`
+elect();
 ```
 
 ## development

@@ -1,7 +1,5 @@
-import whatwgFetch from 'whatwg-fetch'
 import shlex from 'shlex'
 
-const { Request } = whatwgFetch
 const { quote } = shlex
 
 /**
@@ -17,20 +15,18 @@ const CURL = 'curl'
  * @return {string}                   curl command text
  */
 export const parser = (input, init = {}) => {
-  const req = new Request(input, init)
-
   const redirect = init.redirect === 'follow' ? ['-L'] : []
 
-  const url = req.url
+  const url = typeof input === 'object' ? input.url : input
 
-  const method = ['-X', req.method]
+  const method = ['-X', init.method || 'GET']
 
-  const headers = Object.keys(req.headers.map)
-    .map(key => ['--header', `${key}: ${req.headers.map[key]}`])
+  const headers = Object.keys(init.headers || {})
+    .map(key => ['--header', `${key}: ${init.headers[key]}`])
     .concat(init.cache ? [['--header', `cache-control: ${init.cache}`]] : [])
     .reduce((prev, header) => [...prev, ...header], [])
 
-  const body = init.body === void 0 ? [] : ['-d', req._bodyText]
+  const body = init.body === void 0 ? [] : ['-d', init.body]
 
   return [CURL, ...redirect, url, ...method, ...headers, ...body]
     .map(quote)
@@ -40,7 +36,8 @@ export const parser = (input, init = {}) => {
 let _fetch = false
 
 /**
- * inject fetch proxy
+ * inject fetch callback
+ * @param  {function} defaultCallback default callback
  * @return {void}
  */
 export const inject = defaultCallback => {
@@ -61,7 +58,7 @@ export const inject = defaultCallback => {
 }
 
 /**
- * eject fetch proxy
+ * eject fetch callback
  * @return {void}
  */
 export const eject = () => {

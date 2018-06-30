@@ -15,21 +15,21 @@ Convert fetch arguments to a curl command.
 ## install
 
 ```shell
-$ npm i fetch-to-curl -S
+$ npm i fetch2curl -S
 # or
-$ yarn add fetch-to-curl
+$ yarn add fetch2curl
 ```
 
 ## usage
 
 ```javascript
-import { parser } from "fetch-to-curl";
+import { parser } from "fetch2curl";
 const command = parser("https://example.com", { method: "POST" });
 console.log(command); // curl "https://example.com" -X "POST"
 ```
 
 ```javascript
-import { inject, eject } from "fetch-to-curl";
+import { inject, eject } from "fetch2curl";
 inject(command => console.log(`COMMAND: \`${command}\``));
 fetch("https://example.com", { method: "POST" }); // COMMAND: `curl "https://example.com" -X "POST"`
 elect();

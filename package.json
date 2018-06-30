@@ -11,6 +11,7 @@
     "build": "rollup ./src/index.mjs --format cjs --file ./dist/main.js",
     "test": "ava",
     "lint": "eslint --cache --ext=js --ext=mjs .",
+    "lint:prettier": "prettier-eslint",
     "encrypt_npm_accesstoken": "travis encrypt $([[ $(cat ~/.npmrc) =~ _authToken=(.*)$ ]] && echo ${BASH_REMATCH[1]}) --add deploy.api_key",
     "deploy_keygen": "ssh-keygen -t rsa -b 4096 -C \"$(git config user.email)\" -f ./.travis_rsa -N ''",
     "encrypt_deploy_key": "travis encrypt-file ./.travis_rsa --add",
@@ -48,7 +49,6 @@
     "sinon": "^6.0.1"
   },
   "dependencies": {
-    "shlex": "^1.0.2",
-    "whatwg-fetch": "^2.0.4"
+    "shlex": "^1.0.2"
   }
 }

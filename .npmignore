@@ -7,3 +7,6 @@ src/*.test.js
 .prettierrc.js
 .travis.yml
 appveyor.yml
+logs
+*.log
+*.log*

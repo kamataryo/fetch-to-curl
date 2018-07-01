@@ -21,7 +21,9 @@ $ yarn add fetch2curl
 
 ## usage
 
-## parser
+You can get executable curl command immediately and easily. Do anything with it, for example posting to chat.
+
+### parser
 
 ```javascript
 import { parser } from 'fetch2curl'
@@ -29,6 +31,8 @@ import { parser } from 'fetch2curl'
 const command = parser('https://example.com', { method: 'POST' })
 console.log(command) // curl https://example.com -X POST
 ```
+
+### hook fetch execution
 
 ```javascript
 import { inject, eject } from 'fetch2curl'

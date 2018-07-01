@@ -21,7 +21,7 @@ $ yarn add fetch2curl
 
 ## usage
 
-You can get executable curl command immediately and easily. Do anything with it, for example posting to chat.
+You can get executable curl command immediately and easily. Do anything with it, for example posting to your chat as an evidence.
 
 ### parser
 

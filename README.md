@@ -50,6 +50,7 @@ eject()
 ```shell
 $ git clone https://github.com/kamataryo/fetch-to-curl.git
 $ cd fetch-to-curl
+$ npm install # or yarn
 $ npm test
 ```
 
